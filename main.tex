@@ -1,0 +1,423 @@
+% The following CV was modified by Samy Masadi from the
+% FortySecondsCV LaTeX template (details below).
+% https://de.overleaf.com/latex/templates/forty-seconds-cv/pztcktmyngsk
+
+% FortySecondsCV LaTeX template
+% Copyright © 2019 René Wirnata <rene.wirnata@pandascience.net>
+% Licensed under the 3-Clause BSD License. See LICENSE file for details.
+%
+% Attributions
+% ------------
+% * fortysecondscv is based on the twentysecondcv class by Carmine Spagnuolo 
+%   (cspagnuolo@unisa.it), released under the MIT license and available under
+%   https://github.com/spagnuolocarmine/TwentySecondsCurriculumVitae-LaTex
+% * further attributions are indicated immediately before corresponding code
+
+
+%-------------------------------------------------------------------------------
+%                             ADDITIONAL PACKAGES
+%-------------------------------------------------------------------------------
+\documentclass[
+  letterpaper, 
+%   showframes,
+%   vline=2.2em,
+%   maincolor=cvgreen,
+%   sectioncolor=red,
+%   subsectioncolor=orange,
+%   itemtextcolor=black!80,
+%   sidebarwidth=0.4\paperwidth,
+   topbottommargin=0.03\paperheight,
+   leftrightmargin=20pt,
+%   proilepicsize=4.5cm,
+]{fortysecondscv}
+
+% improve word spacing and hyphenation
+\usepackage{microtype}
+\usepackage{ragged2e}
+
+% take care of proper font encoding
+\ifxetexorluatex
+	\usepackage{fontspec}
+	\defaultfontfeatures{Ligatures=TeX}
+% \newfontfamily\headingfont[Path = fonts/]{segoeuib.ttf} % local font
+\else
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+% \usepackage[sfdefault]{noto} % use noto google font
+\fi
+
+% enable mathematical syntax for some symbols like \varnothing
+\usepackage{amssymb}
+
+% bubble diagram configuration
+\usepackage{smartdiagram}
+\smartdiagramset{
+  % defaut font size is \large, so adjust to harmonize with sidebar layout
+  bubble center node font = \footnotesize,
+  bubble node font = \footnotesize,
+  % default: 4cm/2.5cm; make minimum diameter relative to sidebar size
+  bubble center node size = 0.4\sidebartextwidth,
+  bubble node size = 0.25\sidebartextwidth,
+  distance center/other bubbles = 1.5em,
+  % set center bubble color
+  bubble center node color = maincolor!70,
+  % define the list of colors usable in the diagram
+  set color list = {maincolor!10, maincolor!40,
+  maincolor!20, maincolor!60, maincolor!35},
+  % sets the opacity at which the bubbles are shown
+  bubble fill opacity = 0.8,
+}
+
+% for greater control of list spacing
+\usepackage{enumitem}
+
+% end-of-line hyphenation doesn't look right in a CV
+\usepackage[none]{hyphenat}
+
+%-------------------------------------------------------------------------------
+%                            PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+%% mandatory information
+% your name
+\cvname{Samy Masadi}
+% job title/career
+\cvjobtitle{Software Developer}     %{Panda Scientist,\\[0.2em] Panda of the Year}
+
+%% optional information
+% profile picture
+%\cvprofilepic{pics/profile.png}
+
+% NOTE: ordering in sidebar will mimic the following order
+% date of birth
+%\cvbirthday{\today}
+% short address/location, use \newline if more than 1 line is required
+\cvaddress{123 Example St.\newline City, RI 55555}
+% phone number
+\cvphone{+1 555 123 4567}
+% personal website
+%\cvsite{https://pandascience.net}
+% email address
+\cvmail{samymasadi@gmail.com}
+% pgp key
+%\cvkey{4096R/FF00FF00}{0xAABBCCDDFF00FF00}
+% any other custom entry
+%\cvcustomdata{\faFlag}{Chinese}
+%\cvcustomdata{\faLinkedinSquare}{LinkedIn}
+%\cvcustomdata{\faInfo}{Indeed}
+%\cvcustomdata{\faHandPaperO}{Handshake}
+%\cvcustomdata{\faGithub}{Github}
+
+%-------------------------------------------------------------------------------
+%                              SIDEBAR 1st PAGE
+%-------------------------------------------------------------------------------
+% add more profile sections to sidebar on first page
+\addtofrontsidebar{
+	% include gosquare national flags from https://github.com/gosquared/flags;
+	% naming according to ISO 3166-1 alpha-2 country codes
+	\graphicspath{{pics/flags/}}
+
+	\profilesection{Career Focus}
+		Work individually or within teams to \newline create and maintain programs and \newline software.
+
+	% social network accounts incl. proper hyperlinks
+	\profilesection{Social}
+	    \begin{icontable}{2.5em}{1em}
+		    % overleaf still not supports Academicons and FontAwesome5 for XeLaTeX, which contain the overleaf logl...unbelievable...
+		    %\social{\aiOverleafSquare}
+%			\social{\faArchive}
+%				{https://de.overleaf.com/latex/templates/forty-seconds-cv/pztcktmyngsk}
+%				{Overleaf Template Link}
+            \social{\faLinkedinSquare}
+                {https://www.linkedin.com/in/SamyMasadi}
+                {linkedin.com/in/SamyMasadi}
+			\social{\faGithub}
+				{https://github.com/SamyMasadi}
+				{github.com/SamyMasadi}
+		\end{icontable}
+
+    \profilesection{Programming}
+%        0 LOC - - - - - - - - - - - - - - - 5000 LOC \newline \newline     % Optional key for barskills - currently unused
+	    \barskill{}{Java\phantom{-}\textbullet\phantom{-}JavaScript\phantom{-}\textbullet\phantom{-}Python}{100}
+	    \barskill{}{HTML \& CSS\hspace{1ex}\textbullet\phantom{-}\LaTeX\phantom{-}\textbullet\phantom{-}SQL}{75}
+	    \barskill{}{Bash\phantom{-}\textbullet\phantom{-}C/C++\phantom{-}\textbullet\phantom{-}Matlab}{50}
+	
+	\profilesection{Skills}
+	    \pointskill{\faBook}{Documentation}{5}
+	    \pointskill{\faServer}{Full-Stack Dev}{5}
+	    \pointskill{\faUsers}{Team-Based Dev}{5}
+	    \pointskill{\faChrome}{Web Development}{5}
+	    \pointskill{\faDatabase}{Database}{4}
+	    \pointskill{\faSearch}{QA/Testing}{4}
+	    \pointskill{\faLock}{CyberSecurity}{3}
+	    \pointskill{\faPhoto}{Front-End UI}{3}
+
+    \profilesection{References}
+        Available upon request.
+	
+%	\profilesection{Languages}
+%		\pointskill{\flag{CN.png}}{Chinese}{5}
+%		\pointskill{\flag{DE.png}}{German}{3}
+%  	\pointskill{\flag{GB.png}}{English}{3}
+%  	\pointskill{\flag{FR.png}}{French}{3}
+
+%	\profilesection{Hard Skills}
+%		\skill{\faBalanceScale}{Sleeping almost all day}
+%		\skill{\faSitemap}{Eating a lot bamboo sprouts}
+%		\skill{\faGraduationCap}{Relaxing rest of the day}
+
+%	\profilesection{Soft Skills}
+%		\pointskill{\faHome}{Looking Cute}{4}[4]
+% 			\skill[1.8em]{\faCompress}{No need to specify further}
+%		\pointskill{\faChild}{Chillin' hard}{3}[4]
+% 			\skill[1.8em]{\faCompress}{On a tree}
+% 			\skill[1.8em]{\faCompress}{On the grass}
+}
+
+\iffalse    % Second page is not used.
+%-------------------------------------------------------------------------------
+%                              SIDEBAR 2nd PAGE
+%-------------------------------------------------------------------------------
+\addtobacksidebar{
+	\profilesection{About Me}
+	\aboutme{
+		The giant panda is a terrestrial animal and primarily spends its life
+		roaming and feeding in the bamboo forests of the Qinling Mountains and in
+		the hilly province of Sichuan.
+	}
+
+	\profilesection{Diagrams}
+	\chartlabel{Bubble Diagram}
+	\begin{figure}\centering
+		\smartdiagram[bubble diagram]{
+			\textcolor{white}{\textbf{Being a}} \\ 
+			\textcolor{white}{\textbf{Panda}}, % center bubble	
+			\textcolor{black!90}{Eating},
+			\textcolor{black!90}{Sleeping},
+			\textcolor{black!90}{Rolling},
+			\textcolor{black!90}{Playing},
+			\textcolor{black!90}{Chilling}
+		}
+	\end{figure}
+
+	\chartlabel{Wheel Chart}
+
+	\wheelchart{4em}{2em}{%
+  	20/3em/maincolor!50/Chill,
+  	15/3em/maincolor!15/Play,
+  	30/4em/maincolor!40/Sleep,
+  	20/3em/maincolor!20/Eat
+	}
+
+	\profilesection{Barskills}
+	\barskill{\faSkyatlas}{Wearing asian rice hats}{60}
+	\barskill{\faImage}{Playing Chess}{30}
+	\barskill{\faMusic}{Playing the bamboo flute}{50}
+
+	\profilesection{Memberships}
+	\begin{memberships}
+		\membership[4em]{pics/logo.png}{PandaScience.net}
+		\membership[4em]{pics/logo.png}{Some long text spanning over more than
+			only one line}
+		\membership[4em]{pics/logo.png}{\rule{\linewidth}{1pt}}
+	\end{memberships}
+}
+\fi     % Second page is not used.
+
+%-------------------------------------------------------------------------------
+%                         TABLE ENTRIES RIGHT COLUMN
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\makefrontsidebar
+
+\vspace*{-1em}
+
+\cvsection{Summary}
+    I believe in developing software with considerable thought and social responsibility. Modern programs have a powerful influence on our lives. So for me, not just any implementation will do. My background in writing and criticism uniquely positions me to develop software that's not just readable, but also conscious of its potential impact. Thus, I aim to join the right team, benefit users, and make programs better.
+
+%\vspace{-0.5em}
+\cvsection{Education}
+%\cvsubsection{Postgraduate Training}
+%\begin{cvtable}[1.5]
+%	\cvitem{2009 -- 2010}{Post-Doc Panda Studies}{Panda Academy}
+%		{In-depth studies on the impact of bamboo nutrition for young pandas and
+%		its relation to relaxing, sleeping and snoozing parts of the day.}
+%	\cvitem{2008 -- 2009}{Research Stay Europe}{European Panda Labs}
+%		{Spending one year abroad teaching european panda facilities about the
+%		newest findings and research in the field of asian rice hat covers and
+%		applications for bamboo as a material.}
+%\end{cvtable}
+
+%\cvsubsection{Study}
+\begin{cvtable}%[1.5]
+	\cvitem{2019}{BS Computer Science}{Rhode Island College}
+		{
+		\vspace{-2em}
+		\begin{itemize}[noitemsep]
+		    \item 4.0 GPA
+		    \item Honors: \textit{summa cum laude}, Dean's List
+		\end{itemize}
+		}
+%	\cvitem{}{Master Theses ($\varnothing\,	1,0$)}{Asian Rice Hat Institute}
+%		{Impact on solar radiation onto rice hat cover materials with special
+%		attention to water resistance.}
+	\cvitem{2010}{BA English}{Rhode Island College}
+		{
+		\vspace{-2em}
+		\begin{itemize}[noitemsep]
+		    \item 3.86 GPA
+		    \item Honors: \textit{summa cum laude}, College Honors, Honors in English, General Education Honors, Dean’s List
+		\end{itemize}
+		}
+	\cvitem{2006}{High School Degree}{Woonsocket High School}
+		{
+		\vspace{-2em}
+		\begin{itemize}[noitemsep]
+		    \item Class Valedictorian
+		\end{itemize}
+		}
+\end{cvtable}
+
+\vspace{-1em}
+\cvsection{Work Experience}
+\begin{cvtable}%[3]
+	\cvitem{May 2019 \newline Mar 2018}{Student Coordinator}{User Support Services, Rhode Island College}
+	    {
+	    \vspace{-2em}
+	    \begin{itemize}[noitemsep]
+	        \item Assisted full-time staff with supervision of lab assistant workers and provided day-to-day guidance and direction.
+	        \item Helped troubleshoot issues with computer lab PCs and created work orders for the RIC Help Desk.
+	        \item Trained new lab assistant hires to orient them with lab rules and daily procedures.
+	    \end{itemize}
+	    }
+	\cvitem{Mar 2018 \newline Jan 2017}{Computer Lab Assistant}{User Support Services, Rhode Island College}
+	    {
+	    \vspace{-2em}
+	    \begin{itemize}[noitemsep]
+	        \item Provided support to students using campus computer labs.
+	    \end{itemize}
+	    }
+	\cvitem{Dec 2016 \newline May 2010}{Freelance Writer}{Self-employed}
+	    {
+	    \vspace{-2em}
+	    \begin{itemize}[noitemsep]
+	        \item Contributed online editorial, preview, and review content for websites including PCGamer.com and StrengthGamer.com.
+	        \item Produced video content, including live broadcasts, for my independent Twitch and YouTube channels.
+	    \end{itemize}
+	    }
+	\cvitem{May 2010 \newline Mar 2009}{Senior Editor}{Game-Central.org}
+	    {
+	    \vspace{-2em}
+	    \begin{itemize}[noitemsep]
+	        \item Responsible for organizing and editing review articles.
+	        \item Edited and published articles from freelance writers.
+	        \item Attended and helped record weekly podcasts.
+	    \end{itemize}
+	    }
+    \cvitem{May 2010 \newline Sep 2008}{Staff Writer}{The Anchor, Rhode Island College}
+	    {
+	    \vspace{-2em}
+	    \begin{itemize}[noitemsep]
+	        \item Worked within a weekly deadline to contribute editorials, previews, and reviews for RIC’s student-run print newspaper.
+	    \end{itemize}
+	    }
+    \cvitem{May 2010 \newline Sep 2007}{Computer Lab Assistant}{User Support Services, Rhode Island College}
+	    {
+	    \vspace{-2em}
+	    \begin{itemize}[noitemsep]
+	        \item Provided support to students using campus computer labs.
+	    \end{itemize}
+	    }
+\end{cvtable}
+
+\vspace{-1em}
+\cvsection{Projects}
+    \begin{cvtable}
+    	\cvitemshort{FOOTBALLr}{In a team of five, contributed to back-end functionality for a fantasy football website. Worked within a scrum development model and met with the team 2-3 times per week. Tools used included MongoDB, Express, Node.js, and Git. \newline}
+    	\cvitemshort{Prince, LLC. Database}{In a team of three, developed the front and back end for a convenience store's employee-used database website. The site utilized HTML, CSS, Express, Node.js, and MySQL.}
+    \end{cvtable}
+
+\iffalse
+\cvsection{Publications}
+\begin{cvtable}
+	\cvpubitem{Cooking: 100 recipes for lazy Pandas}{Me and My Panda Friends}
+		{Panda's Culinary World}{2010}
+	\cvpubitem{Pandastasia}{Still Me}{Bamboo Books Assoc.}{2005}
+\end{cvtable}
+
+
+\cvsection{Awards}
+\begin{cvtable}
+	\cvitem{2010 -- now}{Panda of the Year}{Panda World Forum}{}
+	\cvitem{2005 -- now}{Face of World Wide Fund for Nature}{WWF}{}
+	\cvitem{2000}{Winner of Bamboo Sprouts Eating Contest}{Bamboo Society}{}
+\end{cvtable}
+
+
+\cvsection{Extra-Curricular Activities}
+\begin{cvtable}
+	\cvitemshort{Relaxing}{Master the fine art of relaxing everywhere}
+	\cvitemshort{Music}{Playing the bamboo flute in the 1st Panda Orchestra}
+	\cvitemshort{Education}{Teaching young pandas to be more panda-like}
+\end{cvtable}
+\fi
+
+\iffalse    % Remove this line and \fi at the end if using second page.
+\newpage
+\makebacksidebar
+
+
+\cvsection{section}
+\cvsubsection{Subsection}
+\begin{cvtable}
+	\cvitem{<dates>}{<cv-item title>}{<location>}{<optional: description>}
+\end{cvtable}
+
+\cvsection{cvitem}
+\cvsubsection{Multi-line with longer description}
+\begin{cvtable}
+	\cvitem{date}{Description}{location}{Some longer and more detailed 
+		description, that takes two lines	of space instead of only one.}
+	\cvitem{date}{Description}{location}{Some longer and more detailed 
+		description, that takes two lines	of space instead of only one.}
+	\cvitem{date}{Description}{location}{Some longer and more detailed 
+		description, that takes two lines	of space instead of only one.}
+\end{cvtable}
+
+\cvsubsection{One-line without description}
+\begin{cvtable}
+	\cvitem{Award}{One-line description}{Sponsor}{}
+	\cvitem{Award}{One-line description}{Sponsor}{}
+	\cvitem{Award}{One-line description}{Sponsor}{}
+\end{cvtable}
+
+\cvsection{cvitemshort}
+\cvsubsection{One-line}
+\begin{cvtable}
+	\cvitemshort{Key}{Some further description}
+	\cvitemshort{Key}{Some further description}
+	\cvitemshort{Key}{Some further description}
+\end{cvtable}
+
+\cvsubsection{Multi-line with longer description}
+\begin{cvtable}
+	\cvitemshort{Key}{Some further description. Can fill even more than
+		only one single line while still keeping the correct indendation level.}
+	\cvitemshort{Key}{Some further description. Can fill even more than
+		only one single line while still keeping the correct indendation level.}
+	\cvitemshort{Key}{Some further description. Can fill even more than
+		only one single line while still keeping the correct indendation level.}
+\end{cvtable}
+
+\cvsection{cvpubitem}
+\begin{cvtable}
+	\cvpubitem{Publication title}{Authors}{Journal}{Year}
+	\cvpubitem{Publication title}{Authors}{Journal}{Year}
+	\cvpubitem{Publication title that is spanning over multiple lines and still
+		does not look too bad}{Authors}{Journal}{Year}
+\end{cvtable}
+
+\cvsignature
+\fi     % Remove this line if using second page.
+
+\end{document} 
